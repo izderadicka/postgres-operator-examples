@@ -1,5 +1,20 @@
 # Examples for Using [PGO](https://github.com/CrunchyData/postgres-operator), the Postgres Operator from Crunchy Data
 
+## My customization
+Playing in kustomize/postgress and kustomize/pgadmin
+
+### PgAdmin
+Default user  - fist must create secret
+oc create secret generic pgadmin-password-secret --from-literal=password=xxx
+Also creates route
+
+### postgress
+Password for user hippo:
+```
+oc get secret hippo-pguser-hippo -o json | jq -r .data.password | base64 -d ; echo
+```
+
+
 This repository contains a collection of installers and examples for deploying, operating and maintaining Postgres clusters using PGO, the Postgres Operator from Crunchy Data as part of [Crunchy Postgres for Kubernetes](https://www.crunchydata.com/products/crunchy-postgresql-for-kubernetes).
 
 The use of these examples with PGO and other container images (aside from those provided by Crunchy Data) will require modifications of the examples.

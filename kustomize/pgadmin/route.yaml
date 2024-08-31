@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: pgadmin
+spec:
+  host: pgadmin.apps.66cf47d47b78bda4a09be66e.ocp.techzone.ibm.com
+  port:
+    targetPort: pgadmin-port
+  to:
+    kind: Service
+    name: pgadmin-service
